@@ -224,5 +224,259 @@ else if (Lado1 != Lado2 && Lado2 != Lado3 && Lado3 != Lado1)
 */
 
 // Ejercicio_14
-decimal Moto = "1", Carro = "2", Bus = "3", Tarifa;
-Console.Write("¿Que Tipo De Vehiculo Es? (Moto = 1; Bus): ");
+/* int Lado1, Lado2, Lado3;
+Console.Write("El Lado 1: ");
+Lado1 = int.Parse(Console.ReadLine());
+Console.Write("El Lado 2: ");
+Lado2 = int.Parse(Console.ReadLine());
+Console.Write("El Lado 3: ");
+Lado3 = int.Parse(Console.ReadLine());
+if (Lado1 == Lado2 && Lado2 == Lado3 && Lado3 == Lado1)
+{
+    Console.WriteLine("El Trinagulo Es Equilatero");
+}
+else if (Lado1 == Lado2 || Lado2 == Lado3 || Lado3 == Lado1)
+{
+    Console.WriteLine("El Triangulo Es Isoceles");
+}
+else if (Lado1 != Lado2 && Lado2 != Lado3 && Lado3 != Lado1)
+{
+    Console.WriteLine("El Triangulo Es Escaleno");
+}
+*/
+
+// Ejercicio_15
+/* double HorasP, Tarifa, Respuesta;
+Console.WriteLine("1. Moto.");
+Console.WriteLine("2. Carro.");
+Console.WriteLine("3. Bus.");
+Console.Write("¿Que Tipo De Vehiculo Es? (Elija Solo El Numero Correspondiente): ");
+Respuesta = double.Parse(Console.ReadLine());
+Console.Write("Horas De Permanencia: ");
+HorasP = double.Parse(Console.ReadLine());
+if (Respuesta == 1)
+{
+    if (HorasP <= 5)
+    {
+        Tarifa = HorasP * 1500;
+        Console.WriteLine("La Tarifa A Pagar Es: " + Tarifa);
+    }
+    else if (HorasP > 5)
+    {
+        Tarifa = 8000;
+        Console.WriteLine("El Total A Pagar Es: "+ Tarifa);
+    }
+}
+else if (Respuesta == 2)
+{
+    if (HorasP <= 5)
+    {
+        Tarifa = HorasP * 3000;
+        Console.WriteLine("La Tarifa A Pagar Es: " + Tarifa);
+    }
+    else if (HorasP > 5)
+    {
+        Tarifa = 15000;
+        Console.WriteLine("La Tarifa A Pagar Es: " + Tarifa);
+    }
+}
+else if (Respuesta == 3)
+{
+    if (HorasP <= 5)
+    {
+        Tarifa = HorasP * 6000;
+        Console.WriteLine("La Tarifa A Pagar Es:" + Tarifa);
+    }
+    else if (HorasP > 5)
+    {
+        Tarifa = 30000;
+        Console.WriteLine("La Tarifa A Pagar: " + Tarifa);
+    }
+}
+else
+{
+    Console.WriteLine("Vehiculo Invalido");
+    return;
+}
+*/
+
+// Ejercicio_16
+/* int Año;
+Console.Write("Ingrese El Año A Determinar: ");
+Año = int.Parse(Console.ReadLine());
+if (Año % 4 == 0)
+{
+    if (Año % 100 == 0)
+    {
+    
+     if (Año % 400 == 0)
+        {
+            Console.WriteLine("El Año Es Bisiesto");
+        }
+        else
+        {
+            Console.WriteLine("El Año No Es Bisiesto");
+        }
+    }
+    else
+    {
+        Console.WriteLine("El Año Es Bisiesto");
+    }
+}
+else
+{
+    Console.WriteLine("El Año No Es Bisiesto");
+} 
+*/
+
+// Ejercicio_17
+/* decimal Monto, Saldo, NuevoS;
+Console.Write("Ingrese El Saldo De Su Cuenta: ");
+Saldo = decimal.Parse(Console.ReadLine());
+Console.Write("Ingrese El Monto A Retirar: ");
+Monto = decimal.Parse(Console.ReadLine());
+if (Monto > Saldo)
+{
+    Console.WriteLine("Fondo Insuficiente");
+}
+else
+{
+    if (Monto % 10000 == 0)
+    {
+        NuevoS = Saldo - Monto;
+        Console.Write("El Nuevo Saldo Es: " + NuevoS);
+    }
+    else
+    {
+        Console.Write("El Cajero Solo Entrega Billetes De 10.000");
+    }
+}
+*/
+
+// Ejercicio_18
+/* double a, b, c, Discriminante, x1, x2;
+Console.Write("Ingrese El Valor De a: ");
+a = double.Parse(Console.ReadLine());
+Console.Write("Ingrese El Valor De b: ");
+b = double.Parse(Console.ReadLine());
+Console.Write("Ingrese El Valor De c: ");
+c = double.Parse(Console.ReadLine());
+if (a == 0)
+{
+    Console.WriteLine("No Es Una Ecuacion Cuadratica");
+}
+else
+{
+    Discriminante = Math.Pow(b , 2) - (4 * a * c);
+    if (Discriminante > 0)
+    {
+    x1 = (-b + Math.Sqrt(Discriminante)) / (2 * a);
+    x2 = (-b - Math.Sqrt(Discriminante)) / (2 * a);
+    Console.WriteLine("Hay Dos Raices Reales Distintas");
+    Console.WriteLine("La x1 Vale: " + x1);
+    Console.WriteLine("La x2 Vale: " + x2);
+    }
+    else if (Discriminante == 0)
+    {
+        x1 = -b / (2 * a);
+        Console.WriteLine("Es Una Raiz Doble Y Su Resultado Es: " + x1);
+    }
+    else
+    {
+        Console.WriteLine("Tiene Dos Raices Complejas");
+    }
+
+}
+*/
+
+// Ejercicio_19
+/* int Estrato;
+double ValorBase, Consumo, Total;
+Console.Write("Ingrese Su Estrato: ");
+Estrato = int.Parse(Console.ReadLine());
+Console.Write("Ingrese El Consumo De KwH: ");
+Consumo = double.Parse(Console.ReadLine());
+ValorBase = Consumo * 800;
+if (Estrato == 1 || Estrato == 2)
+{
+    Total = ValorBase * 0.5;
+    Console.WriteLine("El Total A Pagar Es: " + Total);
+}
+else if (Estrato == 3)
+{
+    Total = ValorBase * 0.85;
+    Console.WriteLine("El Total A Pagar Es: " + Total);
+}
+else if (Estrato == 4)
+{
+    Total = ValorBase * 1.00;
+    Console.WriteLine("El Total A Pagar Es: " + Total);
+}
+else if (Estrato == 5 || Estrato == 6)
+{
+    Total = ValorBase * 1.20;
+    Console.WriteLine("El Total A Pagar Es: " + Total);
+}
+else
+{
+    Console.WriteLine("Estrato Invalido");
+    return;
+}
+*/
+
+// Ejercicio_20
+/* string Usuario  = "rpuerta", Contraseña = "Amigo2026", N, C;
+Console.Write("Ingrese Su Usuario: ");
+N = (Console.ReadLine());
+if (N != Usuario)
+{
+    Console.WriteLine("Usuario No Registrado");
+}
+else
+{
+    Console.Write("Ingrese La Contraseña: ");
+    C = (Console.ReadLine());
+    if (C == Contraseña)
+    {
+        Console.WriteLine("Bienvenido, Rafael Evelio Puerta Mejia");
+    }
+    else
+    {
+        Console.WriteLine("Contraseña Incorrecta");
+    }
+}
+*/
+
+// Ejercicio_21
+/* double Nota;
+Console.Write("Ingrese Nota: ");
+Nota = double.Parse(Console.ReadLine());
+if (Nota >= 0.0 && Nota <= 5.0)
+{
+    Console.WriteLine("Nota Valida");
+}
+else
+{
+    Console.WriteLine("Nota Fuera De Rango");
+}
+*/
+
+// Ejercicio_22
+/* int Dia;
+Console.Write("Ingrese EL Dia A Comprobar: ");
+Dia = int.Parse(Console.ReadLine());
+if (Dia >= 1 && Dia <= 5)
+{
+    Console.WriteLine("Dia Habil");
+}
+else if (Dia == 7 || Dia == 6)
+{
+    Console.WriteLine("Fin De Semana");
+}
+else
+{
+    Console.WriteLine("Dia Invalido");
+}
+*/
+
+// Ejercicio_24
