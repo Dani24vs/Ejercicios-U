@@ -480,3 +480,34 @@ else
 */
 
 // Ejercicio_24
+/* int Año;
+Console.Write("Ingrese El Año A Determinar: ");
+Año = int.Parse(Console.ReadLine());
+if ((Año % 4 == 0 && Año % 100 != 0) || Año % 400 == 0)
+{
+    Console.WriteLine("El Año Es Bisiesto");
+}
+else
+{
+    Console.WriteLine("El Año No Es Bisiesto");
+} 
+*/
+
+// Ejercicio_25
+/* /* int Edad;
+Boolean Boleta, Lista;
+Console.Write("Ingrese Su Edad: ");
+Edad = int.Parse(Console.ReadLine());
+Console.Write("¿Tiene Boleta? (true/false): ");
+Boleta = Boolean.Parse(Console.ReadLine());
+Console.Write("¿Esta En La Lista? (true/false): ");
+Lista = Boolean.Parse(Console.ReadLine());
+if (Edad >= 18 && (Boleta == true || Lista == true))
+{
+    Console.WriteLine("Puede Ingresar");
+}
+else
+{
+    Console.WriteLine("No Puede Ingresar");
+}
+*/
