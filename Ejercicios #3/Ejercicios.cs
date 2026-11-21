@@ -50,7 +50,7 @@ switch (Mes)
 string Nombre;
 const decimal Matricula = 3500000;
 int Estrato;
-double TotalPagar, Descuento;
+decimal TotalPagar, Descuento;
 Console.Write("Ingrese Su Nombre: ");
 Nombre = Console.ReadLine();
 Console.Write("Ingrese El Estrato (1 A 6): ");
