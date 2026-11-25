@@ -161,12 +161,13 @@ switch (Codigo)
 }
 */
 
+/* #Ejercicio 5. Conversor de unidades con menú
 const double Libras = 2.20462;
 const double Millas = 0.621371;
+double Kilogramos, Kilometros, Celsius, Conversion;
+int op = 0;
 do
 {
-int op = 0;
-double Kilometros, Kilogramos, Celsius, Conversion;
 String Menu = @"
 ========== Conversor Unidades ==========
 
@@ -180,41 +181,147 @@ op = int.Parse(Console.ReadLine());
 switch (op)
 {
     case 1:
-     Console.Write("Kilometros: ");
-     if (double.TryParse(Console.ReadLine(), out double Kilometros))
-        {
-            Conversion = Kilometros * Millas;
-            Console.WriteLine(Kilometros + " = " + Conversion);
-        }
-        else
-        {
-            Console.WriteLine("Valor No Valido.");
-        }
+     Kilometros = LeerValor("Kilometros: ");
+     Conversion = Kilometros * Millas;
+     Console.WriteLine(Kilometros + "km" +  " = " + Conversion + "km");
     break;
     case 2:
-     Console.Write("Kilogramos: ");
-     if (double.TryParse(Console.ReadLine(), out double Kilogramos))
-        {
-            Conversion = Kilogramos * Libras;
-            Console.WriteLine(Kilogramos + " = " + Conversion);
-        }
-        else
-        {
-            Console.WriteLine("Valor No Valido.");
-        }
+     Kilogramos = LeerValor("Kilogramos: ");
+     Conversion = Kilogramos * Libras;
+     Console.WriteLine(Kilogramos + "kg" +" = " + Conversion + "kg");
     break;
     case 3:
-     Console.Write("Grados Celcius: ");
-     if (double.TryParse(Console.ReadLine(), out double Celsius))
-        {
-            Conversion = Celsius * (9 / 5) + 32;
-            Console.WriteLine(Celsius + "°C" + " = " + Conversion);
-        }
-        else
-        {
-            Console.WriteLine("Valor No Valido.");
-        }
+     Celsius = LeerValor("Celsius: ");
+     Conversion = Celsius * (9.0 / 5) + 32;
+     Console.WriteLine(Celsius + "°C" + " = " + Conversion + "°F");
     break;
 }
 } while (op != 0);
 Console.WriteLine("La Buena Manito.");
+static double LeerValor(string Mensaje)
+{
+    double Valor;
+    Console.Write(Mensaje);
+    while (!double.TryParse(Console.ReadLine(), out Valor))
+    {
+        Console.Write("Valor No Valido. Ingrese Otro Valor: ");
+    }
+    return Valor;
+}
+*/
+
+/* #Ejercicio 6. Desempeño académico
+string NombreEstu, Pregunta;
+double Nota1, Nota2, Nota3, Promedio;
+do
+{
+Console.Write("Nombre Del Estudiante: ");
+NombreEstu = Console.ReadLine().Trim();
+Nota1 = LeerNota("Nota 1 (0 A 5): ");
+Nota2 = LeerNota("Nota 2 (0 A 5): ");
+Nota3 = LeerNota("Nota 3 (0 A 5): ");
+Promedio = (Nota1 + Nota2 + Nota3) / 3;
+string Desempeño = Promedio switch
+{
+    >= 4.6 and <= 5.0 => "Superior",
+    >= 4.0 and <= 4.59 => "Alto",
+    >= 3.0 and <= 3.99 => "Basico",
+    < 3.0 => "Bajo"
+};
+Console.WriteLine(NombreEstu + " - " + "Promedio: " + Promedio + " - " + "Desempeño: " + Desempeño);
+switch (Desempeño)
+{
+    case "Superior":
+     Console.WriteLine("¡Excelente Trabajo!. Postula A Monitoría.");
+    break;
+    case "Alto":
+     Console.WriteLine("Aprobó La Asignatura.");
+    break;
+    case "Basico":
+     Console.WriteLine("Aprobó La Asignatura.");
+    break;
+    case "Bajo":
+     Console.WriteLine("Debe Presentar Habilitación.");
+    break;
+}
+Console.Write("¿Registrar Otro Estudiante? (S/N): ");
+Pregunta = Console.ReadLine().ToLower().Trim();
+} while (Pregunta != "n");
+static double LeerNota(string Mensaje)
+{
+    double Nota;
+    Console.Write(Mensaje);
+    while (!double.TryParse(Console.ReadLine(), out Nota) || Nota < 0.0 || Nota > 5.0)
+    {
+        Console.Write("Nota Invalida. Ingrese Otro Valor: ");
+    }
+    return Nota;
+}
+*/
+
+/* #Ejercicio 7 (reto). Cajero automático 
+decimal Saldo = 500000, Depositar, Retirar;
+int op = 0;
+do
+{
+String Menu = @"
+========== Cajero ==========
+1. Consultar Saldo.
+2. Depositar.
+3. Retirar.
+0. Salir.";
+Console.WriteLine(Menu);
+Console.Write("Opcion: ");
+op = int.Parse(Console.ReadLine());
+switch (op)
+{
+    case 1:
+     Console.WriteLine("Rafael Evelio Puerta Mejia.");
+     Console.WriteLine("Su Saldo Actual Es: " + Saldo);
+    break;
+    case 2:
+     Depositar = LeerValor("¿Cuanto Desea Depositar?: ");
+     Saldo = Saldo + Depositar; 
+     Console.WriteLine("Deposito Exitoso. Saldo Actual: " + Saldo);
+    break;
+    case 3:
+     Retirar = LeerValor("Valor A Retirar (Multiplos De 10.000): ");
+     if (Retirar > Saldo)
+        {
+            Console.WriteLine("Saldo Insuficiente.");
+        }
+     else
+        {
+            if (Retirar % 10000 == 0)
+            {
+                Saldo = Saldo - Retirar;
+                Console.WriteLine("Retiro Exitoso.");
+                Console.WriteLine("El Saldo Actual Es: " + Saldo);
+            }
+            else
+            {
+                Console.WriteLine("El Cajero Solo Entrega Multiplos De 10,000.");
+            }
+        }
+    break;
+    case 0:
+     Console.WriteLine("Crack.");
+    break;
+    default:
+     Console.WriteLine("No Se Ingreso Opcion Valida.");
+    break;
+}
+} while (op != 0);
+Console.WriteLine("Buen Dia.");
+static decimal LeerValor(string Mensaje)
+{
+    decimal Valor;
+    Console.Write(Mensaje);
+    while (!decimal.TryParse(Console.ReadLine(), out Valor) || Valor <= 0)
+    {
+        Console.Write("Valor Invalido.");
+        Console.Write("Ingrese Otro Valor: ");
+    }
+    return Valor;
+}
+*/
